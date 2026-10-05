@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How Notinu handles recordings, notes, optional cloud processing, Google Drive synchronization, and privacy requests.">
+  <title>Notinu Privacy Policy</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232149d6'/%3E%3Cpath d='M18 46V18h7l14 19V18h7v28h-7L25 27v19z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#policy">Skip to privacy policy</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Notinu, top of page"><span class="brand-mark" aria-hidden="true">N</span>Notinu</a>
+      <a class="contact-link" href="mailto:anna44933@gmail.com">Contact woooks</a>
+    </div>
+  </header>
+  <main id="top" class="layout">
+    <aside class="contents" aria-label="On this page">
+      <p class="contents-label">ON THIS PAGE</p>
+      <nav aria-label="Privacy policy sections">
+        <a href="#information">Information we handle</a>
+        <a href="#processing">Local and online processing</a>
+        <a href="#sync">Google Drive sync</a>
+        <a href="#retention">Retention and deletion</a>
+        <a href="#choices">Your choices</a>
+        <a href="#security">Security and service providers</a>
+        <a href="#contact">Contact and privacy requests</a>
+      </nav>
+      <div class="publisher"><span>Developed by</span><strong>woooks</strong></div>
+    </aside>
+    <article id="policy">
+      <div class="intro">
+        <p class="eyebrow">NOTINU · PRIVACY</p>
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last updated: October 5, 2026</p>
+        <p class="lead">Your recordings and notes can contain personal information. This policy explains how Notinu handles that information and what changes when you use online features.</p>
+        <p>Notinu is developed by <strong>woooks</strong>. This policy covers the Notinu Android app, its optional connected services, and this privacy policy website. Google Drive synchronization can also make your content available to a connected Notinu desktop app.</p>
+      </div>
+      <div class="overview">
+        <p class="overview-title">At a glance</p>
+        <ul>
+          <li>Recordings, notes, transcripts, and summaries are stored on your device.</li>
+          <li>Online AI features send the content needed for the selected task to a service provider.</li>
+          <li>Connecting Google Drive synchronizes record titles, summaries, and full transcripts by default. Audio upload is controlled separately.</li>
+          <li>Recording location is optional and is off by default.</li>
+        </ul>
+      </div>
+      <section id="information">
+        <h2>1. Information we handle</h2>
+        <p>The information handled depends on the features you use:</p>
+        <ul>
+          <li><strong>Record content:</strong> microphone recordings, imported audio, transcripts, summaries, notes, tasks, titles, timestamps, categories, favorites, and speaker labels or names you enter. Recordings may contain other people's voices and personal information.</li>
+          <li><strong>Google connection:</strong> account information returned by Google, an account label such as your email address, authorization tokens, and a Google Drive user identifier used to authenticate connected services and apply usage limits. Notinu does not receive your Google password.</li>
+          <li><strong>Optional location:</strong> a recent location, accuracy, and timestamp saved when a new recording starts, if you enable the feature and grant Android location permission. Approximate or precise location depends on the permission you grant. This feature does not continuously track your movements.</li>
+          <li><strong>Settings and service information:</strong> your preferences, device-generated synchronization identifiers, record identifiers, content hashes, service usage counters, and technical error information.</li>
+          <li><strong>API credentials:</strong> if you configure your own online AI service key, the app stores that credential for the selected service and uses it to authorize requests to that service.</li>
+          <li><strong>Support messages:</strong> your email address and information you choose to include when you contact us.</li>
+        </ul>
+        <p>We use this information to record and organize your content, perform the processing you request, synchronize connected devices, authenticate requests, apply service limits, troubleshoot problems, and answer privacy or support requests.</p>
+      </section>
+      <section id="processing">
+        <h2>2. Local and online processing</h2>
+        <p>When you use a local transcription, speaker separation, or local summary engine, that processing runs on the device. Selecting a local engine does not disable an independently connected Google Drive synchronization feature.</p>
+        <p>When you select an online feature, the relevant content leaves your device:</p>
+        <div class="table-wrap">
+          <table>
+            <caption class="visually-hidden">Online features, content sent, and recipients</caption>
+            <thead><tr><th scope="col">Feature</th><th scope="col">Information sent</th><th scope="col">Recipient</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Online transcription</th><td>Audio needed for transcription, language settings, and any vocabulary hints included in the request.</td><td>Google Gemini or Groq, according to the engine selected.</td></tr>
+              <tr><th scope="row">Direct online summaries or task suggestions</th><td>Relevant record text and instructions or context needed for the result.</td><td>Google Gemini or Groq, according to the feature and service selected.</td></tr>
+              <tr><th scope="row">Notinu-managed online summaries</th><td>Transcript text, summary options, and a Google authorization token for authentication.</td><td>The Notinu summary service hosted on Google Cloud; record text is forwarded to Z.AI (GLM) for processing.</td></tr>
+              <tr><th scope="row">Online record search</th><td>Your question, relevant saved record text, and a Google authorization token for authentication.</td><td>The Notinu service hosted on Google Cloud; the question and record text are forwarded to Z.AI (GLM).</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The Notinu-managed summary and search endpoints receive text rather than your original audio files. Direct online transcription sends audio to the selected provider. The app attempts to remove temporary Gemini audio uploads after processing; deletion is best effort and provider retention rules still apply.</p>
+        <p>Provider handling depends on the provider, its terms, and the account or service tier used. For example, Google's unpaid Gemini API terms permit use of submitted content and responses to improve services and allow human review. Do not send sensitive or confidential recordings to an online service unless its data terms are appropriate for your use.</p>
+      </section>
+      <section id="sync">
+        <h2>3. Google Drive synchronization</h2>
+        <p>Connecting Google Drive authorizes Notinu to synchronize app-created or app-authorized files using Google's <code>drive.file</code> permission. This does not grant unrestricted access to all files in your Drive.</p>
+        <p>Once Google Drive sync is enabled, record titles, summaries, and full transcripts are synchronized by default. Other synchronized record data includes speaker labels, notes, tasks, timestamps, categories, favorites, synchronization metadata, and any saved recording locations. Audio files are included only when you separately enable audio synchronization.</p>
+        <p>Connected Notinu devices can read synchronized content from the same Drive account. Turning off location capture prevents new locations from being saved; it does not remove locations already attached to records. Disconnecting Drive stops future synchronization but does not, by itself, erase existing Drive files or copies on other devices.</p>
+      </section>
+      <section id="retention">
+        <h2>4. Retention and deletion</h2>
+        <ul>
+          <li><strong>On your device:</strong> saved content remains until you delete it or remove the app's data. Content moved to trash may remain recoverable until permanently deleted. Exported files, operating-system backups, and copies on other devices are separate.</li>
+          <li><strong>In Google Drive:</strong> synchronized files remain subject to your app actions and Google Drive controls. Review and remove unneeded Drive files, backups, and shared copies separately. A local deletion or disconnect does not guarantee immediate removal of every remote copy.</li>
+          <li><strong>Notinu-managed online services:</strong> generated summary results are cached with a 90-day expiry marker; record-search results have a 30-day marker. Minute-level usage records have a 2-day marker and daily usage records have a 40-day marker. These markers are configured in the service code; actual removal depends on the deployed storage expiry process and may occur later. Cached AI results may contain personal information from your records. The cache stores generated results and a request hash, rather than a separate full-transcript field.</li>
+          <li><strong>Service-provider data and logs:</strong> providers handle submitted content, generated outputs, authorization information, and technical request data under their own terms. Operational logs may include request metadata and technical error details. Their retention is not controlled by deleting a local record.</li>
+          <li><strong>Support correspondence:</strong> messages remain in the support mailbox while needed to address the request and retain a record of the response. Contact us to request removal.</li>
+        </ul>
+        <p>For information held by woooks or the Notinu-managed service, email <a href="mailto:anna44933@gmail.com">anna44933@gmail.com</a> to request access, correction, or deletion. We may need to verify the request and identify the affected account or records. We will explain any data we cannot remove, such as data retained to meet a legal obligation or copies controlled by another provider.</p>
+      </section>
+      <section id="choices">
+        <h2>5. Your choices</h2>
+        <ul>
+          <li>Choose an available local engine if you do not want an AI task sent to an online provider.</li>
+          <li>Disconnect Google Drive or change synchronization settings to control future uploads.</li>
+          <li>Disable location capture and manage microphone, location, and notification permissions in Android settings.</li>
+          <li>Remove an API key or choose another engine to stop future requests using that key.</li>
+          <li>Delete saved records and review separate Drive, desktop, backup, and exported copies.</li>
+        </ul>
+        <p>Microphone permission is used for recording. Recording can continue while the screen is off through Android's foreground-service controls and recording notification. Denying a permission may prevent the related feature from working.</p>
+        <p>Use the contact details below for privacy questions or a request concerning data associated with your Google connection. Disconnecting Notinu does not delete your Google account.</p>
+      </section>
+      <section id="security">
+        <h2>6. Security and service providers</h2>
+        <p>The app uses Android app storage and HTTPS connections for its online service requests. Devices, shared files, account access, and backups also affect the security of your information. No storage or transmission method can guarantee complete security.</p>
+        <p>Relevant providers include Google (authorization, Drive, Gemini, and cloud infrastructure), Groq, and Z.AI. They receive information needed for the feature you use. Requests and storage may be processed outside the United States, including the Notinu-managed service's Google Cloud region in South Korea.</p>
+        <p>Provider terms and privacy information:</p>
+        <ul class="provider-links">
+          <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+          <li><a href="https://ai.google.dev/gemini-api/terms">Gemini API Terms</a></li>
+          <li><a href="https://groq.com/privacy-policy">Groq Privacy Policy</a> and <a href="https://console.groq.com/docs/legal/customer-data-processing-addendum">GroqCloud Data Processing Addendum</a>.</li>
+          <li><a href="https://chat.z.ai/legal-agreement/privacy-policy">Z.AI Privacy Policy</a> — includes information for API customers.</li>
+        </ul>
+        <p>This policy website is hosted on GitHub Pages and does not use a sign-in form, advertising tags, or analytics scripts. GitHub logs and stores visitors' IP addresses for security purposes, whether or not they are signed in to GitHub. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a> for more information.</p>
+      </section>
+      <section id="contact" class="contact-section">
+        <h2>7. Contact and privacy requests</h2>
+        <p><strong>Developer:</strong> woooks<br><strong>App:</strong> Notinu<br><strong>Email:</strong> <a href="mailto:anna44933@gmail.com">anna44933@gmail.com</a></p>
+        <p>You can ask about your information, request access or correction, or request deletion of data held by the Notinu-managed service. Please describe the request and the Google account used for the connection, if relevant. Do not send passwords, authorization tokens, API keys, or complete private recordings in your first message.</p>
+        <p>If you believe a child has provided personal information through Notinu, contact us so we can review the situation and address the information concerned.</p>
+        <p>We may update this policy when features or data handling change. The latest version will be posted on this page with a revised update date.</p>
+      </section>
+      <footer class="policy-footer"><span>Notinu · woooks</span><a href="#top">Back to top</a></footer>
+    </article>
+  </main>
+</body>
+</html>
