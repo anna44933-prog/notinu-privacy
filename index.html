@@ -62,7 +62,7 @@
       </section>
       <section id="processing">
         <h2>2. Local and online processing</h2>
-        <p>The current Android app includes a multilingual Whisper speech model. Default transcription and detection between your selected speech languages run on your device without sending audio to an AI service. Local speaker separation runs on the device. The current Android app no longer includes the local Qwen summary model; AI summaries use the optional, consented Notinu-managed online service described below. Windows and older app versions may still provide local summaries. Selecting a local engine does not disable an independently connected Google Drive synchronization feature.</p>
+        <p>The current Android app uses Google&#39;s on-device speech recognizer for default transcription, with one primary and an optional second language. Language availability depends on the Android version, Google&#39;s installed speech service, and the models installed on the device. Preparing a language can contact Google to download its speech model. Notinu supplies audio to the on-device recognizer and does not silently switch default transcription to an online AI service when local recognition is unavailable. Original recordings and local speaker separation remain on your device. The current Android app no longer bundles Whisper or the local Qwen summary model; AI summaries use the optional, consented Notinu-managed online service described below. Windows and older app versions may still provide other local engines. Local processing does not disable independently connected Google Drive synchronization.</p>
         <p>When you select an online feature, the relevant content leaves your device:</p>
         <div class="table-wrap">
           <table>
