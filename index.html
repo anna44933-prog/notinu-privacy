@@ -34,7 +34,7 @@
       <div class="intro">
         <p class="eyebrow">NOTINU · PRIVACY</p>
         <h1>Privacy Policy</h1>
-        <p class="updated">Last updated: October 8, 2026</p>
+        <p class="updated">Last updated: October 10, 2026</p>
         <p class="lead">Your recordings and notes can contain personal information. This policy explains how Notinu handles that information and what changes when you use online features.</p>
         <p>Notinu is developed by <strong>woooks</strong>. This policy covers the Notinu Android app, its optional connected services, and this privacy policy website. Google Drive synchronization can also make your content available to a connected Notinu desktop app.</p>
       </div>
@@ -51,9 +51,10 @@
         <h2>1. Information we handle</h2>
         <p>The information handled depends on the features you use:</p>
         <ul>
-          <li><strong>Record content:</strong> microphone recordings, imported audio, transcripts, summaries, notes, tasks, titles, timestamps, categories, favorites, and speaker labels or names you enter. Recordings may contain other people's voices and personal information.</li>
+          <li><strong>Record content:</strong> microphone recordings, imported audio, transcripts, summaries, notes, photo attachments, tasks, calendar event details, titles, timestamps, categories, favorites, and speaker labels or names you enter. Recordings may contain other people's voices and personal information.</li>
           <li><strong>Google connection:</strong> account information returned by Google, an account label such as your email address, authorization tokens, and a Google Drive user identifier used to authenticate connected services and apply usage limits. Notinu does not receive your Google password.</li>
           <li><strong>Optional location:</strong> location coordinates, accuracy, timestamps, and a movement route saved during recording, if you explicitly enable route capture and grant Android location permission. Approximate or precise location depends on your permission. Collection stops when recording is paused or stopped, or when you turn route capture off. Enabling the older single-location setting does not automatically enable continuous route capture.</li>
+          <li><strong>Call recording import:</strong> with your permission, Notinu checks call progress and end states and looks for accessible recording files made by your phone app. Phone-state access does not read phone numbers, the call log, or the live call audio. Imported files can contain personal information; the original files are preserved.</li>
           <li><strong>Settings and service information:</strong> your preferences, device-generated synchronization identifiers, record identifiers, content hashes, service usage counters, and technical error information.</li>
           <li><strong>API credentials:</strong> if you configure your own online AI service key, the app stores that credential for the selected service and uses it to authorize requests to that service.</li>
           <li><strong>Support messages:</strong> your email address and information you choose to include when you contact us.</li>
@@ -63,21 +64,21 @@
       <section id="processing">
         <h2>2. Local and online processing</h2>
         <p>The current Android app uses Google&#39;s on-device speech recognizer for default transcription, with one primary and an optional second language. Language availability depends on the Android version, Google&#39;s installed speech service, and the models installed on the device. Preparing a language can contact Google to download its speech model. Notinu supplies audio to the on-device recognizer and does not silently switch default transcription to an online AI service when local recognition is unavailable. Original recordings and local speaker separation remain on your device. The current Android app no longer bundles Whisper or the local Qwen summary model; AI summaries use the optional, consented Notinu-managed online service described below. Windows and older app versions may still provide other local engines. Local processing does not disable independently connected Google Drive synchronization.</p>
-        <p>When you select an online feature, the relevant content leaves your device:</p>
+        <p>When you select an online feature, the relevant content leaves your device. Other direct online engines listed below depend on the app platform and version; the current Android default transcription uses Google on-device recognition.</p>
         <div class="table-wrap">
           <table>
             <caption class="visually-hidden">Online features, content sent, and recipients</caption>
             <thead><tr><th scope="col">Feature</th><th scope="col">Information sent</th><th scope="col">Recipient</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Online transcription</th><td>Audio needed for transcription, language settings, and any vocabulary hints included in the request.</td><td>Google Gemini or Groq, according to the engine selected.</td></tr>
-              <tr><th scope="row">Direct online summaries or task suggestions</th><td>Relevant record text and instructions or context needed for the result.</td><td>Google Gemini or Groq, according to the feature and service selected.</td></tr>
+              <tr><th scope="row">Other online transcription, where available</th><td>Audio needed for transcription, language settings, and any vocabulary hints included in the request.</td><td>Google Gemini or Groq, according to the engine selected.</td></tr>
+              <tr><th scope="row">Direct online summaries or task suggestions, where available</th><td>Relevant record text and instructions or context needed for the result.</td><td>Google Gemini or Groq, according to the feature and service selected.</td></tr>
               <tr><th scope="row">Notinu-managed online summaries</th><td>Transcript text, summary options, app language, and a Google authorization token for authentication.</td><td>The Notinu summary service hosted on Google Cloud. Transcript text, summary options, and language are forwarded through OpenRouter to the provider serving Qwen3.7 Flash. The Google token is used by Notinu and is not sent to OpenRouter or the model provider.</td></tr>
               <tr><th scope="row">Online record search</th><td>Your question, relevant saved record text, and a Google authorization token for authentication.</td><td>The Notinu service hosted on Google Cloud; the question and record text are forwarded to Z.AI (GLM).</td></tr>
               <tr><th scope="row">Recording background map</th><td>Map tile coordinates for the displayed area, your IP address, and normal network request information. Tile coordinates can reveal the area being viewed.</td><td>OpenStreetMap tile servers. Notinu does not include your audio, transcript, or full route-coordinate array in tile requests.</td></tr>
             </tbody>
           </table>
         </div>
-        <p>In Android version 1.27.24 and later, the default summary method is the Notinu-managed Qwen online service, and a separate summary switch is not shown in Settings. No transcript is sent for a new user until they confirm the external-processing notice in the recording screen and connect their Google account. An earlier explicit refusal is preserved; the user can reconsider when requesting a summary. Without consent or after consent is withdrawn, new summary requests are blocked and ongoing app requests are cancelled; this cannot recall information already transmitted. The original recording and saved transcript are retained on your device.</p>
+        <p>The current Android summary provider is the Notinu-managed Qwen online service. Summaries are requested manually by default. You can separately enable automatic summaries after transcription in Settings; this does not itself grant permission to transmit your records. No transcript is sent for a new user until they confirm the external-processing notice in the recording screen and connect their Google account. An earlier explicit refusal is preserved; the user can reconsider when requesting a summary. Without consent or after consent is withdrawn, new summary requests are blocked and ongoing app requests are cancelled; this cannot recall information already transmitted. The original recording and saved transcript are retained on your device.</p>
         <p>Background maps are loaded only after you choose to show a map and accept the map notice. The route is drawn locally using the included Leaflet library. Map downloads require internet access; saved route data remains on your device when the map background is unavailable.</p>
         <p>The Notinu-managed summary and search endpoints receive text rather than your original audio files. Direct online transcription sends audio to the selected provider. The app attempts to remove temporary Gemini audio uploads after processing; deletion is best effort and provider retention rules still apply.</p>
         <p>Provider handling depends on the provider, its terms, and the account or service tier used. For example, Google's unpaid Gemini API terms permit use of submitted content and responses to improve services and allow human review. Do not send sensitive or confidential recordings to an online service unless its data terms are appropriate for your use.</p>
@@ -85,7 +86,7 @@
       <section id="sync">
         <h2>3. Google Drive synchronization</h2>
         <p>Connecting Google Drive authorizes Notinu to synchronize app-created or app-authorized files using Google's <code>drive.file</code> permission. This does not grant unrestricted access to all files in your Drive.</p>
-        <p>Once Google Drive sync is enabled, record titles, summaries, and full transcripts are synchronized by default. Other synchronized record data includes speaker labels, notes, tasks, timestamps, categories, favorites, synchronization metadata, and any saved recording locations and movement routes. Photo attachments may also be copied for synchronization. Audio files are included only when you separately enable audio synchronization.</p>
+        <p>Once Google Drive sync is enabled, record titles, summaries, and full transcripts are synchronized by default. Other synchronized record data includes speaker labels, notes, tasks, linked calendar event details, timestamps, categories, favorites, synchronization metadata, and any saved recording locations and movement routes. Photo attachments may also be copied for synchronization. Audio files are included only when you separately enable audio synchronization.</p>
         <p>Connected Notinu devices can read synchronized content from the same Drive account. Turning off location capture prevents new locations from being saved; it does not remove locations already attached to records. Disconnecting Drive stops future synchronization but does not, by itself, erase existing Drive files or copies on other devices.</p>
       </section>
       <section id="retention">
@@ -102,10 +103,10 @@
       <section id="choices">
         <h2>5. Your choices</h2>
         <ul>
-          <li>Use the included local speech model and leave online summaries off to keep these AI tasks on your device. Drive synchronization and online maps are separate choices.</li>
+          <li>Use Google on-device transcription and decline online summary processing or avoid online AI search to keep those record contents from being sent to an AI provider. Drive synchronization and online maps are separate choices.</li>
           <li>Disconnect Google Drive or change synchronization settings to control future uploads.</li>
           <li>Disable location capture and manage microphone, location, and notification permissions in Android settings.</li>
-          <li>Remove an API key or choose another engine to stop future requests using that key.</li>
+          <li>If your app version offers a separately configured online engine, remove its API key or choose another engine to stop future requests using that key.</li>
           <li>Delete saved records and review separate Drive, desktop, backup, and exported copies.</li>
         </ul>
         <p>Microphone permission is used for recording. Recording can continue while the screen is off through Android's foreground-service controls and recording notification. Denying a permission may prevent the related feature from working.</p>
@@ -114,7 +115,7 @@
       <section id="security">
         <h2>6. Security and service providers</h2>
         <p>The app uses Android app storage and HTTPS connections for its online service requests. Devices, shared files, account access, and backups also affect the security of your information. No storage or transmission method can guarantee complete security.</p>
-        <p>Relevant providers include Google (authorization, Drive, Gemini, and cloud infrastructure), OpenRouter and the provider serving Qwen3.7 Flash, OpenStreetMap, and any older online engines you separately choose, such as Groq or Z.AI. They receive information needed for the feature you use. Requests and storage may be processed outside the United States, including the Notinu-managed service's Google Cloud region in South Korea.</p>
+        <p>Relevant providers include Google (authorization, Drive, Gemini, and cloud infrastructure), OpenRouter and the provider serving Qwen3.7 Flash, OpenStreetMap, Z.AI for online record search, and any other online engines your app version offers and you separately choose, such as Groq. They receive information needed for the feature you use. Requests and storage may be processed outside the United States, including the Notinu-managed service's Google Cloud region in South Korea.</p>
         <p>Provider terms and privacy information:</p>
         <ul class="provider-links">
           <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
@@ -129,7 +130,10 @@
       <section id="contact" class="contact-section">
         <h2>7. Contact and privacy requests</h2>
         <p><strong>Developer:</strong> woooks<br><strong>App:</strong> Notinu<br><strong>Email:</strong> <a href="mailto:anna44933@gmail.com">anna44933@gmail.com</a></p>
-        <p>You can ask about your information, request access or correction, or request deletion of data held by the Notinu-managed service. Please describe the request and the Google account used for the connection, if relevant. Do not send passwords, authorization tokens, API keys, or complete private recordings in your first message.</p>
+        <h3>How to request data deletion</h3>
+        <p>Email <a href="mailto:anna44933@gmail.com?subject=Notinu%20data%20deletion%20request">anna44933@gmail.com</a> with the subject <strong>Notinu data deletion request</strong>. Identify the Google account connected to Notinu and say whether you want all Notinu-held data or specific data removed. You can request data deletion without deleting your Google account. We may ask for information needed to verify your request.</p>
+        <p>This request covers data held by woooks or the Notinu-managed service, including identifiable cached summary or search results and service usage records. Copies on your device, in your Google Drive, on connected devices, or held by other providers have separate deletion controls described above. We will explain any information that must be retained and the applicable reason or retention period. Do not send passwords, authorization tokens, API keys, or complete private recordings in your first message.</p>
+        <p>You can also email us to request access or correction or to ask about your information.</p>
         <p>If you believe a child has provided personal information through Notinu, contact us so we can review the situation and address the information concerned.</p>
         <p>We may update this policy when features or data handling change. The latest version will be posted on this page with a revised update date.</p>
       </section>
